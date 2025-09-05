@@ -1,0 +1,56 @@
+body {
+    justify-items: center;
+    height: 100vh;
+}
+
+/* Untuk Chrome, Edge, Safari */
+::-webkit-scrollbar {
+  width: 8px; /* lebar scroll */
+}
+
+::-webkit-scrollbar-track {
+  background: transparent; /* background track */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1; /* warna scroll */
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8; /* hover lebih gelap */
+}
+
+/* Untuk Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e1 transparent;
+}
+
+/* optional: custom scrollbar for the scrollable table wrapper */
+div.max-h-64::-webkit-scrollbar {
+  width: 10px;
+}
+div.max-h-64::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,0.12);
+  border-radius: 8px;
+}
+
+/* ensure sticky thead has solid background */
+thead.sticky th {
+  background-color: #f3f4f6; /* Tailwind bg-gray-100 */
+}
+
+/* Tambah di css/style.css */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #3b82f6; /* blue-500 */
+  border-radius: 4px;
+}
+::-webkit-scrollbar-track {
+  background: #e0f2fe; /* blue-100 */
+}
+
+

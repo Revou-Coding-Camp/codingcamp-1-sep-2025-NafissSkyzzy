@@ -5,21 +5,96 @@
     <title>To Do List Nafis</title>
 
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style> html, body { font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; }
+    </style>
   </head>
-  <body>
+  <body class="pt-6 bg-gradient-to-br from-blue-50 via-indigo-50 to-blue-100">
 
-    <header>
-        <img src="" alt="">
+    <header class="text-center mt-2 mb-6 bg-gradient-to-r from-blue-600 to-indigo-600 py-5 px-6 rounded-xl shadow-xl">
+        <h1 class="text-4xl font-extrabold tracking-tight text-white">My To Do List</h1>
     </header>
 
-    <main>
-        
+    <main class="max-w-3xl mx-auto p-6 mt-4 bg-gradient-to-br from-blue-200 via-white-300 to-indigo-400 rounded-2xl shadow-xl text-white">
+        <section id="todo-input-section" class="py-[16px]">
+            <form class="flex flex-col md:flex-row gap-3 items-center">
+<input id="todo-input" type="text"
+  class="flex-1 w-full md:flex-auto bg-blue-50 border border-blue-300 rounded-lg px-4 py-2 
+         placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-400" 
+  placeholder="Add New Task" />
+
+  <input id="todo-date-input" type="date"
+  class="w-full md:w-40 bg-blue-50 border border-blue-300 rounded-lg px-3 py-2 
+         focus:outline-none focus:ring-2 focus:ring-blue-400" />
+
+<button type="button" onclick="validateInput()"
+  class="bg-gradient-to-r from-blue-500 to-indigo-500 hover:from-blue-600 hover:to-indigo-600 
+         text-white rounded-full w-15 h-10 flex items-center justify-center shadow-lg">
+  +
+</button>
+</form>
+
+
+        </section>
+
+        <section class="flex justify-between items-center py-3">
+  <!-- kiri -->
+  <div>
+    <button id="filter-btn" onclick="filterTodo()"
+            class="bg-gradient-to-r from-blue-500 to-indigo-500 hover:from-blue-600 hover:to-indigo-600 
+         text-white px-4 py-2 rounded-lg shadow-md flex items-center gap-2">
+      <span>Filter Task</span>
+      <span id="sort-arrow" class="text-sm">↑</span>
+    </button>
+  </div>
+
+  <!-- kanan -->
+  <div>
+    <button onclick="deleteAllTodo()" 
+            class="bg-gradient-to-r from-rose-500 to-pink-500 hover:from-rose-600 hover:to-pink-600 
+         text-white px-4 py-2 rounded-lg shadow-md">
+      Delete All
+    </button>
+  </div>
+</section>
+
+
+        <!-- Todo list section -->
+      <h2 class="text-xl font-bold text-center text-blue-700">List of To Do</h2>
+<div class="border border-gray-300 min-h-[300px] max-h-[300px] overflow-y-scroll">
+  <table class="w-full text-center table-fixed">
+    <colgroup>
+      <col class="w-2/6"> <!-- Task -->
+      <col class="w-2/6"> <!-- Due Date -->
+      <col class="w-1/6"> <!-- Status -->
+      <col class="w-1/6"> <!-- Actions -->
+    </colgroup>
+    <thead>
+      <tr class="sticky top-0 bg-blue-300 text-white z-10 shadow-sm">
+        <th class="p-2">Task</th>
+        <th class="p-2">Due Date</th>
+        <th class="p-2">Status</th>
+        <th class="p-2">Actions</th>
+      </tr>
+    </thead>
+    <tbody id="todo-list">
+      <tr class="hover:bg-blue-1000 transition-colors">
+        <td colspan="4" class="px-4 py-3 text-center text-gray-400">No task found</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+        </section>
     </main>
     
-    <footer>
-        
-    </footer>
+    <footer class="text-center py-4 border-t border-blue-200 mt-6 text-sm text-gray-500">
+  <p>&copy; 2025 Nafis To Do List</p>
+</footer>
 
+    
     <script src="js/script.js"></script>
   </body>
 </html>
