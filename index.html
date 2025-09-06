@@ -10,29 +10,31 @@
     <style> html, body { font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; }
     </style>
   </head>
-  <body class="pt-6 bg-gradient-to-br from-blue-50 via-indigo-50 to-blue-100">
+  <body class="pt-6 bg-gradient-to-br from-yellow-50 via-indigo-50 to-yellow-100">
 
-    <header class="text-center mt-2 mb-6 bg-gradient-to-r from-blue-600 to-indigo-600 py-5 px-6 rounded-xl shadow-xl">
-        <h1 class="text-4xl font-extrabold tracking-tight text-white">My To Do List</h1>
+    <header class="text-center mt-2 mb-6">
+        <h1 class="text-4xl font-extrabold tracking-tight text-black">My To Do List</h1>
     </header>
 
-    <main class="max-w-3xl mx-auto p-6 mt-4 bg-gradient-to-br from-blue-200 via-white-300 to-indigo-400 rounded-2xl shadow-xl text-white">
+    <main class="max-w-3xl mx-auto p-6 mt-4 bg-gradient-to-br from-neutral-900 via-black to-neutral-800 rounded-2xl shadow-xl text-white">
         <section id="todo-input-section" class="py-[16px]">
             <form class="flex flex-col md:flex-row gap-3 items-center">
-<input id="todo-input" type="text"
-  class="flex-1 w-full md:flex-auto bg-blue-50 border border-blue-300 rounded-lg px-4 py-2 
-         placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-400" 
+
+  <input id="todo-input" type="text"
+  class="flex-1 w-full md:flex-auto bg-gray-800 text-white border border-gray-600 rounded-lg px-4 py-2 
+         placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-400" 
   placeholder="Add New Task" />
 
-  <input id="todo-date-input" type="date"
-  class="w-full md:w-40 bg-blue-50 border border-blue-300 rounded-lg px-3 py-2 
-         focus:outline-none focus:ring-2 focus:ring-blue-400" />
+<input id="todo-date-input" type="date" placeholder="Due Date" required
+  class="relative w-full md:w-40 bg-gray-800 text-white border border-gray-600 rounded-lg px-3 py-2 
+         focus:outline-none focus:ring-2 focus:ring-yellow-400" />
 
 <button type="button" onclick="validateInput()"
-  class="bg-gradient-to-r from-blue-500 to-indigo-500 hover:from-blue-600 hover:to-indigo-600 
+  class="bg-gradient-to-r from-yellow-400 to-orange-500 hover:from-yellow-500 hover:to-orange-600 
          text-white rounded-full w-15 h-10 flex items-center justify-center shadow-lg">
-  +
+  <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M24 9h-9v-9h-6v9h-9v6h9v9h6v-9h9z"/></svg>
 </button>
+
 </form>
 
 
@@ -42,7 +44,7 @@
   <!-- kiri -->
   <div>
     <button id="filter-btn" onclick="filterTodo()"
-            class="bg-gradient-to-r from-blue-500 to-indigo-500 hover:from-blue-600 hover:to-indigo-600 
+            class="font-semibold bg-gradient-to-r from-yellow-400 to-orange-500 hover:from-yellow-500 hover:to-orange-600 
          text-white px-4 py-2 rounded-lg shadow-md flex items-center gap-2">
       <span>Filter Task</span>
       <span id="sort-arrow" class="text-sm">↑</span>
@@ -52,7 +54,7 @@
   <!-- kanan -->
   <div>
     <button onclick="deleteAllTodo()" 
-            class="bg-gradient-to-r from-rose-500 to-pink-500 hover:from-rose-600 hover:to-pink-600 
+            class="font-semibold bg-gradient-to-r from-yellow-400 to-orange-500 hover:from-yellow-500 hover:to-orange-600 
          text-white px-4 py-2 rounded-lg shadow-md">
       Delete All
     </button>
@@ -61,8 +63,8 @@
 
 
         <!-- Todo list section -->
-      <h2 class="text-xl font-bold text-center text-blue-700">List of To Do</h2>
-<div class="border border-gray-300 min-h-[300px] max-h-[300px] overflow-y-scroll">
+      <h2 class="text-xl font-bold text-center text-yellow">List of To Do</h2>
+<div class="border border-yellow-300 min-h-[300px] max-h-[300px] overflow-y-scroll">
   <table class="w-full text-center table-fixed">
     <colgroup>
       <col class="w-2/6"> <!-- Task -->
@@ -71,7 +73,8 @@
       <col class="w-1/6"> <!-- Actions -->
     </colgroup>
     <thead>
-      <tr class="sticky top-0 bg-blue-300 text-white z-10 shadow-sm">
+      <tr class="sticky top-0 bg-gradient-to-r from-yellow-400 to-orange-500 hover:from-yellow-500 hover:to-orange-600 
+         text-white z-10 shadow-sm">
         <th class="p-2">Task</th>
         <th class="p-2">Due Date</th>
         <th class="p-2">Status</th>
@@ -79,7 +82,7 @@
       </tr>
     </thead>
     <tbody id="todo-list">
-      <tr class="hover:bg-blue-1000 transition-colors">
+      <tr>
         <td colspan="4" class="px-4 py-3 text-center text-gray-400">No task found</td>
       </tr>
     </tbody>
